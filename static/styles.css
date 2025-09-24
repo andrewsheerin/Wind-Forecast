@@ -1,0 +1,97 @@
+:root {
+  --bg: #0b1223;
+  --fg: #e5e7eb;
+  --muted: #9ca3af;
+  --panel: #0f172acc;
+  --border: #1f2937;
+  --accent: #60a5fa;
+}
+
+* { box-sizing: border-box; }
+
+html, body {
+  height: 100%;
+  margin: 0;
+  background: var(--bg);
+  color: var(--fg);
+  font-family: system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial;
+}
+
+/* top bar */
+#topbar {
+  position: fixed; top: 0; left: 0; width: 100%;
+  padding: 10px 12px; z-index: 500; border-bottom: 0px solid var(--border);
+}
+#topbar .row {
+    display: flex;
+    align-items: center;
+    justify-content:
+    flex-end;
+    gap: 12px;
+    }
+
+#topbar .controls {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 10px;
+    font-size: 12px;
+    }
+
+.top-bar-text {
+    color: black;
+    font-size: 14px;
+    font-weight: bold;
+    }
+
+#topbar input, #topbar select {
+    background: #0b1223;
+    color: var(--fg);
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    padding: 4px 6px;
+    min-width: 90px;
+}
+#topbar button {
+    background: var(--accent);
+    color: #0b1223;
+    border: 0;
+    border-radius: 10px;
+    padding: 8px 12px;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+/* map fills the space above the bottom plot */
+#map {
+  position: absolute;
+  top: 0; bottom: 0vh; /* adjust to match plotBar height */
+  left: 0; right: 0;
+  z-index: 1;
+}
+
+/* bottom-docked plot */
+#plotBar {
+  position: fixed;
+  left: 0; right: 0; bottom: 0;
+  height: 40vh;               /* tweak as desired */
+  border-top: 0px solid var(--border);
+  z-index: 600;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: auto;
+}
+
+#plotBar {
+  overflow: hidden;   /* no scrollbars */
+}
+
+#plotBar img {
+  max-width: 100%;
+  max-height: 100%;   /* keep the PNG fully visible inside the bar */
+  height: auto;
+  display: block;
+}
+
+
